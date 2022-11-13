@@ -1,0 +1,212 @@
+:root { /* Variables for responsive text - https://utopia.fyi/type/calculator */
+    --step--4: clamp(0.61rem, calc(0.64rem + -0.04vw), 0.63rem);
+    --step--3: clamp(0.76rem, calc(0.76rem + 0.02vw), 0.77rem);
+    --step--2: clamp(0.91rem, calc(0.89rem + 0.10vw), 0.96rem);
+    --step--1: clamp(1.09rem, calc(1.05rem + 0.21vw), 1.20rem);
+    --step-0: clamp(1.31rem, calc(1.24rem + 0.37vw), 1.50rem);
+    --step-1: clamp(1.58rem, calc(1.46rem + 0.59vw), 1.88rem);
+    --step-2: clamp(1.89rem, calc(1.71rem + 0.89vw), 2.34rem);
+    --step-3: clamp(2.27rem, calc(2.01rem + 1.29vw), 2.93rem);
+    --step-4: clamp(2.72rem, calc(2.36rem + 1.83vw), 3.66rem);
+    --step-5: clamp(3.27rem, calc(2.75rem + 2.56vw), 4.58rem);
+    --step-6: clamp(3.92rem, calc(3.22rem + 3.52vw), 5.72rem);
+    --step-7: clamp(4.70rem, calc(3.75rem + 4.78vw), 7.15rem);
+    --step-8: clamp(5.64rem, calc(4.36rem + 6.43vw), 8.94rem);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    font-size: var(--step-0);
+    background-color: #f2f2f2;
+}
+
+header {
+    height: 60vh;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #3c3c3c;
+}
+
+header h1 {
+    font-size: var(--step-6);
+}
+
+header p {
+    line-height: var(--step-3);
+    position: relative;
+    z-index: 1;
+
+    display: inline-block;
+}
+
+header p::before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    background-color: #F2E85C;
+    position: absolute;
+    z-index: -1;
+    transform-origin: left;
+    transform: translate(0.2rem) rotate(-1deg) scaleX(0);
+    animation: highlighting 1.5s 2s cubic-bezier(.5,0,0,1) forwards;
+}
+
+/* 3D card effect */
+#cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100vw;
+    height: 100vh;
+}
+
+.card-container {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 2.5rem;
+    
+    perspective: 2000px;
+}
+
+.card {
+    transform-style: preserve-3d;
+    
+    width: 24rem;
+    min-height: 45rem;
+    border-radius: 32px;
+    padding: 1.5rem 3rem;
+    box-shadow: 0px 20px 20px rgba(0, 0, 0, .2), 0px 0px 50px rgba(0, 0, 0, .2);
+    
+    background-color: #2E4159;
+    color: #f2f2f2;
+
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+}
+
+.card-top {
+    min-height: 16rem;
+    width: 100%;
+    margin-bottom: 2rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+.card-top div.logo {
+    z-index: 2;
+    width: 100%;
+    text-align: center;
+    
+    transform: translateZ(80px);
+}
+
+div.logo>i {
+    font-size: var(--step-6);
+}
+
+.card-top .circle {
+    width: 80%;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    background: linear-gradient(
+        to right,
+        rgba(245, 70, 66, 0.75),
+        rgba(8, 83, 156, 0.75)
+        );
+        
+    position: absolute;
+    z-index: 1;
+}
+
+.info {
+    min-height: 20rem;
+    display: flex;
+    flex-direction: column;
+    gap: 16px 0;
+
+    transform: translateZ(80px);
+}
+
+.info h2 {
+    font-size: var(--step-2);
+}
+
+.info p {
+    font-size: var(--step--1);
+    padding: 2rem, 0;
+    font-weight: lighter;
+}
+
+.info h3 {
+    font-size: var(--step-0);
+}
+
+.characteristics-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+
+    margin-top: 1rem;
+}
+
+.characteristics-tag {
+    font-size: var(--step--2);
+    font-weight: bold;
+    padding: 1rem;
+    background-color: #f2f2f2;
+    color: #3c3c3c;
+    border-radius: 1rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .2);
+    line-height: 0;
+}
+
+.vote-btn {
+    margin: 1rem 0;
+    transform: translateZ(80px);
+}
+
+.vote-btn button {
+    width: 100%;
+    padding: .5rem 0;
+    background-color: #f54642;
+    border: none;
+    color: #f2f2f2;
+    border-radius: 32px;
+    font-size: var(--step-0);
+    font-weight: bolder;
+    cursor: pointer;
+
+    transition: .6s cubic-bezier(.5, .5, 0, 1);
+}
+
+.vote-btn button:hover {
+    transform: scale(1.25);
+}
+
+@keyframes highlighting {
+    100%{
+        transform: translateY(0.2rem) rotate(-1deg) scaleX(1);
+    }
+}
