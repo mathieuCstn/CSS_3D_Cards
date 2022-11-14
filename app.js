@@ -8,8 +8,8 @@ for (let container of containers) {
         const rect = e.currentTarget.getBoundingClientRect()
         const offsetX = e.clientX - rect.left
         const offsetY = e.clientY - rect.top
-        let xAxis = (((container.offsetWidth / 2) - offsetX) / 20) * -1;
-        let yAxis = ((container.offsetHeight / 2) - offsetY) / 20;
+        let xAxis = ((container.offsetWidth / 2) - offsetX) / 20
+        let yAxis = (((container.offsetHeight / 2) - offsetY) / 20) * -1;;
         card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`
     })
     
