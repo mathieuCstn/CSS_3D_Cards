@@ -121,7 +121,7 @@ header p::before {
     width: 100%;
     text-align: center;
     
-    transform: translateZ(80px);
+    transform: translateZ(64px);
 }
 
 div.logo>i {
@@ -148,7 +148,7 @@ div.logo>i {
     flex-direction: column;
     gap: 16px 0;
 
-    transform: translateZ(80px);
+    transform: translateZ(48px);
 }
 
 .info h2 {
@@ -186,7 +186,8 @@ div.logo>i {
 
 .vote-btn {
     margin: 1rem 0;
-    transform: translateZ(80px);
+    transform: translateZ(48px);
+    transform-style: preserve-3d;
 }
 
 .vote-btn button {
@@ -204,7 +205,7 @@ div.logo>i {
 }
 
 .vote-btn button:hover {
-    transform: scale(1.25);
+    transform: translateZ(80px) translateY(10px);
 }
 
 @keyframes highlighting {
